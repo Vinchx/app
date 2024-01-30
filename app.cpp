@@ -1,37 +1,29 @@
-#include<iostream>
-#define ROWS 3
-#define COLS 2
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
-int main()
-{
-    int tahun = 2010;
-    int cell = 10;
-    int penjualan[ROWS][COLS];
+int main() {
+    // Daftar zodiak
+    string zodiak[] = {"Arinies", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"};
 
-    for (int i = 0; i < ROWS; i++)
-    {
-    	cout << "\nPenjualan Tahun " << i+tahun;
-    	cout << "\n--------------------\n";
-    for (int j=0; j < COLS; j++)
-    {
-    	cout << "Data ke-" << j + i;
-        cout << " = ";
-        cin >> penjualan[i][j];
-	}
-	}
-    cout << "Data penjualan pertahun\n";
-    cout << "-----------------------\n";
-    for (int i = 0; i < ROWS; i++)
-    {
-        cout << "\nTahun " << tahun + i;
-        cout << "\n-----------------\n";
-    for (int j = 0; i < COLS; i++)
-    {
-        cout << j + i << ") ";
-        cout << penjualan[i][j] << endl;
-    }
-    }
-    return 0;
+    // Meminta pengguna untuk memasukkan zodiak mereka dan pasangan
+    string zodiak1, zodiak2;
+
+    cout << "Masukkan zodiak Anda: ";
+    getline(cin, zodiak1);
+
+    cout << "Masukkan zodiak pasangan Anda: ";
+    getline(cin, zodiak2);
+
+    // Menghitung persentase kecocokan secara acak
+    srand(time(0));  // Menetapkan seed untuk angka acak
+    int persentaseKecocokan = rand() % 101;  // Menghasilkan angka acak antara 0 dan 100
+
+    // Menampilkan hasil
+    cout << "Kecocokan antara " << zodiak1 << " dan " << zodiak2 << " adalah: " << persentaseKecocokan << "%" << endl;
+
+    return 0;
 }
